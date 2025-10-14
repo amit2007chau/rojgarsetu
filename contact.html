@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RozgarSetu | Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* CSS specific to the Contact Page */
+        
+        /* Reset header color from blue to match the new theme */
+        .main-header {
+            background-color: #007bff; /* skyblue background */
+        }
+        .main-header nav a {
+            color: #ffffff; /* Yellow links */
+        }
+        
+        .contact-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* UPDATED STYLING FOR PSEUDO CODERS GROUP NAME (Attractive 2D Effect) */
+        .group-name {
+            font-family: 'Arial Black', sans-serif; /* Bold modern font */
+            font-size: 4em; 
+            font-weight: 900;
+            color: #FF5733; /* Dynamic Orange Color */
+            margin: 20px 0 40px;
+            text-transform: uppercase;
+            letter-spacing: 12px; /* Wide spacing for style */
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        /* Attractive Underline Effect */
+        .group-name::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to right, #00A896, #FF5733); /* Teal to Orange Gradient */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 4px;
+        }
+
+        .team-section {
+            margin-top: 40px;
+            border-top: 2px solid #f0f0f0;
+            padding-top: 30px;
+        }
+
+        .team-section h3 {
+            color: #00A896; /* Teal accent color */
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            position: relative;
+        }
+        
+        .team-section h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #FF5733; /* Orange line */
+            margin: 10px auto 0;
+        }
+
+        .member-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .member-list li {
+            background-color: #f4f7f9;
+            padding: 15px 30px;
+            border-radius: 8px;
+            border-left: 5px solid #FF5733; /* Orange border */
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .member-list li:hover {
+            background-color: #fff9e6; /* Light yellow background on hover */
+            border-left-color: #00A896; /* Teal border on hover */
+            color: #00A896;
+        }
+        
+        .contact-info {
+            margin-top: 40px;
+            color: #555;
+        }
+        
+        .contact-info a {
+            color: #00A896;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1>RozgarSetu</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="jobs.html">Jobs</a>
+            <a href="courses.html">Courses</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="contact-container">
+        <h1>Connect with the Creators</h1>
+        
+        <div class="group-name">PSEUDO CODERS</div>
+        
+        <div class="team-section">
+            <h3>Our Development Team</h3>
+            
+            <ul class="member-list">
+                <li>Amit Chaurasiya (Group Leader)</li>
+                <li>Vishnu Singh</li>
+                <li>Janardan Chaudhary</li>
+                <li>Ashish Yadav</li>
+            </ul>
+        </div>
+        
+        <div class="contact-info">
+            <p>For support or feedback regarding the RozgarSetu platform, please reach out to our team.</p>
+            <p>Email: <a href="mailto:pseudocoders.dev@example.com">bakchodi@gmail.com</a></p>
+            <p>Project Year: 2025</p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 RozgarSetu. Developed by PSEUDO CODERS.</p>
+    </footer>
+</body>
+</html>

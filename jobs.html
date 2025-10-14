@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RozgarSetu | Explore Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Styles for the Know More Modal - (Ideally in styles.css) */
+        .job-detail-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #e9ecef;
+        }
+        .job-detail-card h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .detail-item strong {
+            width: 150px;
+            color: #495057;
+        }
+        /* Style to hide non-relevant jobs */
+        .job-card.hidden {
+            display: none;
+        }
+        /* Style for the new Success Modal */
+        .success-content {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .success-content .material-icons {
+            font-size: 60px;
+            color: #28a745; /* Green checkmark */
+            margin-bottom: 15px;
+        }
+        .success-content h2 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .success-content p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .success-close-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .success-close-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1>RozgarSetu</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#jobs-list">Jobs</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="jobs-main-container">
+        
+        <div class="search-filter-area">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search Job Title, Company, or Keywords..." onkeyup="applyFilters()">
+                <button class="search-btn" onclick="applyFilters()"><span class="material-icons">search</span></button>
+            </div>
+            
+            <div class="filter-options">
+                <select name="skills" id="skills-filter" onchange="applyFilters()">
+                    <option value="">-- Filter by Skills --</option>
+                    <option value="data-entry">Data Entry</option>
+                    <option value="freelancing">Freelancing</option>
+                    <option value="web-dev">Web Development</option>
+                    <option value="ai-ml">AI/ML</option>
+                    <option value="database">Database</option>
+                    <option value="marketing">Digital Marketing</option>
+                </select>
+                <select name="location">
+                    <option value="">Location (Dummy)</option>
+                    <option value="remote">Remote</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="bangalore">Bangalore</option>
+                </select>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Latest Job Listings (Total 20)</h2>
+
+        <div id="jobs-list" class="job-listings-container">
+            
+            <div class="job-card" data-skill="web-dev">
+                <h3 class="job-title">Senior Frontend Developer (React)</h3>
+                <p class="company-name">Innovate Digital Solutions</p>
+                <div class="job-tags"><span>Full-Time</span><span>Web-Dev</span><span>Bangalore</span></div>
+                <p class="job-desc">Design and implement user interfaces using React.js and modern JavaScript frameworks.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Senior Frontend Developer', 'Innovate Digital Solutions', '2025-10-14', 120, 5, 'Tech Innovator', 'Two technical interview rounds.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Senior Frontend Developer');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="web-dev">
+                <h3 class="job-title">Junior Backend Engineer (Node.js)</h3>
+                <p class="company-name">CodeCraft Technologies</p>
+                <div class="job-tags"><span>Full-Time</span><span>Web-Dev</span><span>Remote</span></div>
+                <p class="job-desc">Develop and maintain server-side logic, defining and maintaining the central database.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Junior Backend Engineer', 'CodeCraft Technologies', '2025-10-10', 85, 8, 'Top Product Company', 'Online coding test, one technical call.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Junior Backend Engineer');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="web-dev">
+                <h3 class="job-title">Full Stack Developer Intern</h3>
+                <p class="company-name">Startup Hub India</p>
+                <div class="job-tags"><span>Internship</span><span>Web-Dev</span><span>Mumbai</span></div>
+                <p class="job-desc">Assist senior developers in both front-end and back-end tasks (MERN stack exposure).</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Full Stack Intern', 'Startup Hub India', '2025-10-12', 40, 4, 'Fast-growing Startup', 'Basic aptitude test and interview.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Full Stack Developer Intern');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="web-dev">
+                <h3 class="job-title">UX/UI Designer</h3>
+                <p class="company-name">Design First Agency</p>
+                <div class="job-tags"><span>Full-Time</span><span>Web-Dev</span><span>Delhi</span></div>
+                <p class="job-desc">Create visually appealing and user-friendly designs for web and mobile applications.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('UX/UI Designer', 'Design First Agency', '2025-10-08', 50, 3, 'Creative Agency', 'Portfolio review and design challenge.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('UX/UI Designer');">Apply Now</button>
+            </div>
+            
+            <div class="job-card" data-skill="ai-ml">
+                <h3 class="job-title">AI/ML Engineer - NLP</h3>
+                <p class="company-name">DataGenius Labs</p>
+                <div class="job-tags"><span>Full-Time</span><span>AI-ML</span><span>Delhi</span></div>
+                <p class="job-desc">Build and deploy Machine Learning models focused on Natural Language Processing tasks.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('AI/ML Engineer - NLP', 'DataGenius Labs', '2025-09-28', 210, 3, 'Data-focused Startup', 'Portfolio review, ML problem-solving interview.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('AI/ML Engineer - NLP');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="ai-ml">
+                <h3 class="job-title">Computer Vision Specialist</h3>
+                <p class="company-name">Visionary Tech</p>
+                <div class="job-tags"><span>Full-Time</span><span>AI-ML</span><span>Bangalore</span></div>
+                <p class="job-desc">Develop and optimize computer vision algorithms for image recognition systems.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Computer Vision Specialist', 'Visionary Tech', '2025-10-01', 150, 2, 'Robotics Firm', 'Deep learning interview and coding challenge.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Computer Vision Specialist');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="ai-ml">
+                <h3 class="job-title">Data Scientist</h3>
+                <p class="company-name">Analytics Pro</p>
+                <div class="job-tags"><span>Full-Time</span><span>AI-ML</span><span>Remote</span></div>
+                <p class="job-desc">Analyze large datasets to extract actionable insights and build predictive models.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Data Scientist', 'Analytics Pro', '2025-10-11', 180, 5, 'Consulting Group', 'Statistical modeling test and presentation.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Data Scientist');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="ai-ml">
+                <h3 class="job-title">Research Intern (ML)</h3>
+                <p class="company-name">AI Research Institute</p>
+                <div class="job-tags"><span>Internship</span><span>AI-ML</span><span>Mumbai</span></div>
+                <p class="job-desc">Assist with literature review and implementation of new machine learning papers.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Research Intern (ML)', 'AI Research Institute', '2025-10-13', 30, 10, 'Academic Research', 'Statement of purpose and brief interview.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Research Intern (ML)');">Apply Now</button>
+            </div>
+            
+            <div class="job-card" data-skill="data-entry">
+                <h3 class="job-title">Senior Data Entry Operator</h3>
+                <p class="company-name">TechSolutions Pvt. Ltd.</p>
+                <div class="job-tags"><span>Part-Time</span><span>Data Entry</span><span>Remote</span></div>
+                <p class="job-desc">Responsible for accurately entering daily data into the system and ensuring its validation.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Data Entry Operator', 'TechSolutions Pvt. Ltd.', '2025-10-13', 35, 15, 'Mid-size BPO', 'Basic typing test.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Senior Data Entry Operator');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="data-entry">
+                <h3 class="job-title">Billing Data Processor</h3>
+                <p class="company-name">Retail Chain Solutions</p>
+                <div class="job-tags"><span>Full-Time</span><span>Data Entry</span><span>Mumbai</span></div>
+                <p class="job-desc">Processing invoice data and reconciling payment records in the ERP system.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Billing Data Processor', 'Retail Chain Solutions', '2025-10-09', 60, 5, 'Retail Sector', 'Tally/Excel proficiency test.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Billing Data Processor');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="data-entry">
+                <h3 class="job-title">Hindi Typing Specialist</h3>
+                <p class="company-name">Government Document Center</p>
+                <div class="job-tags"><span>Part-Time</span><span>Data Entry</span><span>Delhi</span></div>
+                <p class="job-desc">Accurate and fast entry of Hindi text documents into digital archives.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Hindi Typing Specialist', 'Government Document Center', '2025-10-05', 90, 8, 'Government Contract', 'Typing speed and accuracy test in Hindi.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Hindi Typing Specialist');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="data-entry">
+                <h3 class="job-title">Remote Data Validation Analyst</h3>
+                <p class="company-name">Global Outsourcing Inc.</p>
+                <div class="job-tags"><span>Freelancing</span><span>Data Entry</span><span>Remote</span></div>
+                <p class="job-desc">Reviewing and verifying large datasets for consistency and errors.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Remote Data Validation Analyst', 'Global Outsourcing Inc.', '2025-10-03', 45, 10, 'Global Outsourcing', 'Attention to detail test.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Remote Data Validation Analyst');">Apply Now</button>
+            </div>
+            
+            <div class="job-card" data-skill="freelancing">
+                <h3 class="job-title">Freelance Content Writer</h3>
+                <p class="company-name">Creative Hub</p>
+                <div class="job-tags"><span>Freelancing</span><span>Marketing</span><span>Remote</span></div>
+                <p class="job-desc">Write engaging blog posts and website copy. Strong Hindi and English skills are required.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Freelance Content Writer', 'Creative Hub', '2025-09-01', 520, 10, 'Digital Agency', 'Submission of a writing sample.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Freelance Content Writer');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="freelancing">
+                <h3 class="job-title">Social Media Manager (Project Based)</h3>
+                <p class="company-name">BrandBoost Marketing</p>
+                <div class="job-tags"><span>Freelancing</span><span>Marketing</span><span>Remote</span></div>
+                <p class="job-desc">Manage social media accounts for clients on a per-project basis.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Social Media Manager', 'BrandBoost Marketing', '2025-10-10', 110, 5, 'Marketing Consultant', 'Review of past campaign performance.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Social Media Manager (Project Based)');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="freelancing">
+                <h3 class="job-title">Virtual Assistant</h3>
+                <p class="company-name">Executive Support Services</p>
+                <div class="job-tags"><span>Freelancing</span><span>Admin</span><span>Remote</span></div>
+                <p class="job-desc">Provide administrative, technical, or creative assistance to clients remotely.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Virtual Assistant', 'Executive Support Services', '2025-10-07', 95, 7, 'Support Agency', 'Skills assessment and behavioral interview.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Virtual Assistant');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="freelancing">
+                <h3 class="job-title">Logo Designer (Contract)</h3>
+                <p class="company-name">Visual Identity Studios</p>
+                <div class="job-tags"><span>Freelancing</span><span>Web-Dev</span><span>Remote</span></div>
+                <p class="job-desc">Design professional logos and brand identity elements for clients.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Logo Designer (Contract)', 'Visual Identity Studios', '2025-09-20', 250, 12, 'Design Studio', 'Portfolio submission and negotiation.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Logo Designer (Contract)');">Apply Now</button>
+            </div>
+            
+            <div class="job-card" data-skill="database">
+                <h3 class="job-title">Database Administrator (SQL/NoSQL)</h3>
+                <p class="company-name">SecureData Systems</p>
+                <div class="job-tags"><span>Full-Time</span><span>Database</span><span>Mumbai</span></div>
+                <p class="job-desc">Manage and optimize large-scale SQL and NoSQL database infrastructure and security.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Database Administrator', 'SecureData Systems', '2025-10-05', 45, 2, 'Financial Tech Firm', 'Database competency test.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Database Administrator');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="database">
+                <h3 class="job-title">Data Warehouse Specialist</h3>
+                <p class="company-name">Cloud Metrics Inc.</p>
+                <div class="job-tags"><span>Full-Time</span><span>Database</span><span>Bangalore</span></div>
+                <p class="job-desc">Design and maintain data warehouses (e.g., Snowflake, Redshift) for reporting.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Data Warehouse Specialist', 'Cloud Metrics Inc.', '2025-10-01', 70, 3, 'Cloud Services Provider', 'System design interview focusing on ETL.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Data Warehouse Specialist');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="database">
+                <h3 class="job-title">ETL Developer</h3>
+                <p class="company-name">Data Pipeline Solutions</p>
+                <div class="job-tags"><span>Full-Time</span><span>Database</span><span>Remote</span></div>
+                <p class="job-desc">Develop, test, and maintain robust Extract, Transform, Load (ETL) pipelines.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('ETL Developer', 'Data Pipeline Solutions', '2025-10-14', 25, 6, 'Data Consulting', 'Technical interview on ETL tools and concepts.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('ETL Developer');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="database">
+                <h3 class="job-title">SQL Query Analyst</h3>
+                <p class="company-name">Business Intelligence Co.</p>
+                <div class="job-tags"><span>Part-Time</span><span>Database</span><span>Mumbai</span></div>
+                <p class="job-desc">Writing complex SQL queries and generating reports for business analysis.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('SQL Query Analyst', 'Business Intelligence Co.', '2025-10-12', 40, 5, 'BI Firm', 'SQL coding test.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('SQL Query Analyst');">Apply Now</button>
+            </div>
+            
+            <div class="job-card" data-skill="marketing">
+                <h3 class="job-title">Digital Marketing Executive</h3>
+                <p class="company-name">Growth Hacking Agency</p>
+                <div class="job-tags"><span>Full-Time</span><span>Marketing</span><span>Delhi</span></div>
+                <p class="job-desc">Manage SEO, SEM, and social media campaigns for client acquisition.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Digital Marketing Executive', 'Growth Hacking Agency', '2025-10-15', 30, 4, 'Performance Marketing', 'Case study presentation.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Digital Marketing Executive');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="marketing">
+                <h3 class="job-title">Content Marketing Strategist</h3>
+                <p class="company-name">Lead Generation Experts</p>
+                <div class="job-tags"><span>Full-Time</span><span>Marketing</span><span>Remote</span></div>
+                <p class="job-desc">Develop and execute a comprehensive content strategy across all platforms.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Content Marketing Strategist', 'Lead Generation Experts', '2025-10-09', 65, 3, 'B2B Marketing', 'Strategy discussion.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Content Marketing Strategist');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="marketing">
+                <h3 class="job-title">SEO Specialist</h3>
+                <p class="company-name">Search Rank Boosters</p>
+                <div class="job-tags"><span>Part-Time</span><span>Marketing</span><span>Mumbai</span></div>
+                <p class="job-desc">Conduct keyword research and implement on-page and off-page SEO optimizations.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('SEO Specialist', 'Search Rank Boosters', '2025-10-04', 55, 2, 'SEO Consultancy', 'Technical SEO audit test.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('SEO Specialist');">Apply Now</button>
+            </div>
+
+            <div class="job-card" data-skill="marketing">
+                <h3 class="job-title">Email Marketing Associate</h3>
+                <p class="company-name">Customer Outreach Labs</p>
+                <div class="job-tags"><span>Full-Time</span><span>Marketing</span><span>Bangalore</span></div>
+                <p class="job-desc">Design and deploy email marketing campaigns using automation tools.</p>
+                <button class="know-more-btn" onclick="openDetailsModal('Email Marketing Associate', 'Customer Outreach Labs', '2025-10-01', 80, 5, 'SaaS Product Company', 'Email campaign design test.')">Know More</button>
+                <button class="apply-btn" onclick="openApplyForm('Email Marketing Associate');">Apply Now</button>
+            </div>
+            
+        </div>
+
+       
+
+    </main>
+
+    <div id="apply-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeApplyForm()">&times;</span>
+        <h2>Apply for <span id="job-title-in-form"></span></h2>
+        <form id="application-form">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="education">Your Education:</label>
+          <input type="text" id="education" name="education" required>
+          <label for="skills">Key Skills (separate with commas):</label>
+          <input type="text" id="skills" name="skills" required>
+          <label for="experience">Experience (in Years):</label>
+          <input type="number" id="experience" name="experience" min="0" required>
+          <label for="resume">Upload Resume (For visual only):</label>
+          <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+          <button type="submit" class="submit-application-btn">Submit Application</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeDetailsModal()">&times;</span>
+            <h2 id="modal-job-title">Job Title Details</h2>
+            <div class="job-detail-card">
+                <div class="detail-item"><strong>Company Name:</strong> <span id="detail-company-name"></span></div>
+                <div class="detail-item"><strong>Job Posted On:</strong> <span id="detail-date-posted"></span></div>
+                <div class="detail-item"><strong>Applicants:</strong> <span id="detail-applicants"></span></div>
+                <div class="detail-item"><strong>Open Seats:</strong> <span id="detail-seats"></span></div>
+                <div class="detail-item"><strong>Company Details:</strong> <span id="detail-company-details"></span></div>
+                <div class="detail-item"><strong>Hiring Process:</strong> <span id="detail-hiring-process"></span></div>
+            </div>
+            <button class="apply-btn" style="width: 100%; margin-top: 20px;" onclick="closeDetailsModal(); openApplyForm(document.getElementById('modal-job-title').textContent);">Apply for this Job</button>
+        </div>
+    </div>
+    
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <div class="success-content">
+                <span class="material-icons">check_circle</span>
+                <h2>Application Submitted Successfully!</h2>
+                <p>Thank you for applying. We have received your application and will process it shortly.</p>
+                <p>Please **wait for the interview call or email** from the company regarding the next steps.</p>
+                <button class="success-close-btn" onclick="closeSuccessModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="main-footer">
+        <p>&copy; 2025 RozgarSetu. Connecting Talent.</p>
+    </footer>
+
+    <script>
+        // --- Modal Variables ---
+        const applyModal = document.getElementById('apply-modal');
+        const detailsModal = document.getElementById('details-modal');
+        const successModal = document.getElementById('success-modal'); // NEW
+        const jobTitleDisplay = document.getElementById('job-title-in-form');
+        const applicationForm = document.getElementById('application-form');
+        
+        // --- Modal Control Functions ---
+        function openApplyForm(jobTitle) {
+            jobTitleDisplay.textContent = jobTitle;
+            applyModal.style.display = 'block';
+        }
+        function closeApplyForm() {
+            applyModal.style.display = 'none';
+        }
+        function openDetailsModal(title, company, date, applicants, seats, companyDetails, hiringProcess) {
+            document.getElementById('modal-job-title').textContent = title;
+            document.getElementById('detail-company-name').textContent = company;
+            document.getElementById('detail-date-posted').textContent = date;
+            document.getElementById('detail-applicants').textContent = applicants;
+            document.getElementById('detail-seats').textContent = seats;
+            document.getElementById('detail-company-details').textContent = companyDetails;
+            document.getElementById('detail-hiring-process').textContent = hiringProcess;
+            detailsModal.style.display = 'block';
+        }
+        function closeDetailsModal() {
+            detailsModal.style.display = 'none';
+        }
+        
+        // NEW: Function to close the Success Modal
+        function closeSuccessModal() {
+            successModal.style.display = 'none';
+        }
+
+        // --- Form Submission Handler (MODIFIED) ---
+        applicationForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // 1. Close the application form modal
+            closeApplyForm(); 
+            
+            // 2. Reset the form fields
+            applicationForm.reset(); 
+
+            // 3. Display the success modal
+            successModal.style.display = 'block';
+        });
+        
+        // --- Filter Logic (Existing) ---
+        function applyFilters() {
+            const skillFilter = document.getElementById('skills-filter').value;
+            const searchInput = document.getElementById('search-input').value.toLowerCase(); 
+            const jobCards = document.querySelectorAll('.job-card');
+            
+            jobCards.forEach(card => {
+                const cardSkill = card.getAttribute('data-skill'); 
+                const cardText = card.textContent.toLowerCase(); 
+
+                const passesSkillFilter = skillFilter === "" || cardSkill === skillFilter;
+                const passesSearchFilter = cardText.includes(searchInput);
+
+                if (passesSkillFilter && passesSearchFilter) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+        
+        // Close modals when clicking outside (MODIFIED to include successModal)
+        window.onclick = function(event) {
+            if (event.target == applyModal) { closeApplyForm(); }
+            if (event.target == detailsModal) { closeDetailsModal(); }
+            if (event.target == successModal) { closeSuccessModal(); } // NEW
+        }
+
+        window.onload = applyFilters;
+    </script>
+</body>
+</html>

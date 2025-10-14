@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RozgarSetu | Job Posting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Sirf is page ke liye additional styling */
+        .post-job-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .post-job-container h2 {
+            color: #007bff;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .post-job-form label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        .post-job-form input[type="text"],
+        .post-job-form input[type="number"],
+        .post-job-form select,
+        .post-job-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        .post-job-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        .submit-post-btn {
+            background-color: #ffc107; /* Yellow button */
+            color: #333;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: 25px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .submit-post-btn:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1>RozgarSetu</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="jobs.html">Jobs Search</a>
+            <a href="#">Account</a>
+        </nav>
+    </header>
+
+    <main class="post-job-container">
+        <h2>Post New Jobs <span class="material-icons">add_box</span></h2>
+        <form class="post-job-form" onsubmit="handleJobPost(event)">
+            
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" required placeholder="Example: Senior Data Entry Operator">
+
+            <label for="companyName">Company Ka Naam:</label>
+            <input type="text" id="companyName" required placeholder="Example: TechSolutions Pvt. Ltd.">
+
+            <label for="jobType">Job Type:</label>
+            <select id="jobType" required>
+                <option value="">-- Choose --</option>
+                <option value="Full-Time">Full-Time</option>
+                <option value="Part-Time">Part-Time</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Internship">Internship</option>
+            </select>
+
+            <label for="jobLocation">Location (City/Remote):</label>
+            <input type="text" id="jobLocation" required placeholder="Example: Remote, Mumbai, or Delhi">
+            
+            <label for="requiredSkills">Zaroori Skills (Separate using commas):</label>
+            <input type="text" id="requiredSkills" required placeholder="Example: Excel, Hindi Typing, Tally, Frontend React.">
+
+            <label for="jobDescription">Job Description (Details):</label>
+            <textarea id="jobDescription" required placeholder="Complete Job Description like: Role, Description etc."></textarea>
+
+            <button type="submit" class="submit-post-btn">POST JOB</button>
+        </form>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 RozgarSetu. For Job Givers.</p>
+    </footer>
+
+    <script>
+        function handleJobPost(event) {
+            event.preventDefault(); // Default form submission ko roke
+            
+            // Yahan se aap form data collect kar sakte hain:
+            const jobTitle = document.getElementById('jobTitle').value;
+            const companyName = document.getElementById('companyName').value;
+            // ... aur baaki fields
+
+            alert('Job: "' + jobTitle + '" safaltapoorvak (successfully) post ho gayi hai! (Asli mein data server par save hoga aur jobs.html par dikhega)');
+            
+            // Form ko reset karein
+            document.querySelector('.post-job-form').reset();
+        }
+    </script>
+</body>
+</html>

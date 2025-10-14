@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RozgarSetu | Online Courses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Course Listing Styles */
+        .courses-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .courses-container h2 {
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .course-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            transition: transform 0.3s;
+            border-left: 5px solid #007bff;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        .course-card h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .course-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .course-card .duration {
+            font-weight: bold;
+            color: #28a745;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .enroll-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .enroll-btn:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1>RozgarSetu | Courses</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="jobs.html">Jobs</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+    </header>
+
+    <main class="courses-container">
+        <h2>Boost Your Skills with Expert-Led Courses</h2>
+        
+        <div class="course-grid">
+            
+            <div class="course-card">
+                <h3>Full Stack React Development</h3>
+                <p>Master the MERN stack (MongoDB, Express, React, Node) and build modern, scalable web applications from scratch.</p>
+                <span class="duration">Duration: 12 Weeks | Remote</span>
+                <a href="#" class="enroll-btn">Enroll Now</a>
+            </div>
+            
+            <div class="course-card">
+                <h3>Introduction to AI and Machine Learning</h3>
+                <p>Learn the fundamental concepts of AI, Python for data science, and build your first predictive models using TensorFlow.</p>
+                <span class="duration">Duration: 8 Weeks | Beginner Level</span>
+                <a href="#" class="enroll-btn">Enroll Now</a>
+            </div>
+            
+            <div class="course-card">
+                <h3>Advanced Digital Marketing Strategy</h3>
+                <p>Covering SEO, SEM, social media management, and performance marketing. Become a certified digital marketing strategist.</p>
+                <span class="duration">Duration: 10 Weeks | Intermediate Level</span>
+                <a href="#" class="enroll-btn">Enroll Now</a>
+            </div>
+            
+            <div class="course-card">
+                <h3>Excel for Data Entry and Analytics</h3>
+                <p>A comprehensive course on advanced Excel features, including pivot tables, VLOOKUP, and data visualization for office roles.</p>
+                <span class="duration">Duration: 4 Weeks | Certification Included</span>
+                <a href="#" class="enroll-btn">Enroll Now</a>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 RozgarSetu. Upskill Your Future.</p>
+    </footer>
+</body>
+</html>

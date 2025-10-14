@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RozgarSetu | Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- General and Header Styles (Simplified for inclusion) --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        .main-header {
+            background-color: #007bff; /* Blue header */
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-header h1 { margin: 0; font-size: 1.8em; }
+        
+        .main-header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        /* --- Landing Container Styles --- */
+        .landing-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* User Type Cards (Job Seeker/Giver) - Existing Styles */
+        .user-type-selection {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .type-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .select-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        /* --- Featured Companies Styles --- */
+        .companies-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .companies-section h2 {
+            color: #007bff;
+        }
+        
+        .logo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .company-logo {
+            width: 150px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .company-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .company-logo i {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .logo-placeholder {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        /* Unique Colors for Logos */
+        .tech-color { color: #007bff; }
+        .data-color { color: #ffc107; }
+        .creative-color { color: #e83e8c; }
+        .finance-color { color: #20c997; }
+        .startup-color { color: #fd7e14; }
+
+
+        /* --- Resource Section Styles (UPDATED) --- */
+        .resources-section {
+            max-width: 1000px;
+            margin: 60px auto 40px;
+            padding: 40px 20px; /* Increased padding */
+            text-align: center;
+            background-color: #fff; /* White background for separation */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .resources-section h2 {
+            color: #28a745; 
+            margin-bottom: 30px;
+            font-size: 2em; /* Slightly larger heading */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .resource-cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .resource-card {
+            /* Removed padding and shadow to use new container style */
+            width: 45%;
+            padding: 0;
+            box-shadow: none;
+            border: none;
+            text-align: center; /* Centered text within card */
+            background-color: #f9f9f9; /* Light grey background for card */
+            padding: 30px 20px;
+            border-radius: 10px;
+            border-bottom: 4px solid #007bff; /* Blue underline effect */
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-card .material-icons {
+            font-size: 3em; /* Larger icon */
+            color: #28a745; /* Green icon color */
+            margin-bottom: 15px;
+        }
+
+        .resource-card h3 {
+            color: #007bff;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .resource-link {
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* --- Connect and Download Section Styles (FIXED) --- */
+        .connect-wrapper {
+            max-width: 1000px;
+            margin: 60px auto 40px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .connect-section, .download-section {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .connect-section {
+            flex: 1;
+            background-color: #e9f5ff; /* Light blue */
+            text-align: center;
+        }
+
+        .download-section {
+            flex: 1;
+            background-color: #fff; /* White */
+            text-align: center;
+        }
+
+        .connect-section h2, .download-section h2 {
+            color: #007bff;
+            margin-bottom: 25px;
+            font-size: 1.6em;
+        }
+
+        .social-icons a {
+            font-size: 2.5em;
+            margin: 0 15px;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #28a745; 
+        }
+
+        .download-apps {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .download-apps a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .android-btn {
+            background-color: #3DDC84; /* Android green */
+        }
+        
+        .android-btn:hover {
+            background-color: #34c475;
+        }
+
+        .ios-btn {
+            background-color: #007AFF; /* iOS blue */
+        }
+        
+        .ios-btn:hover {
+            background-color: #005bb5;
+        }
+
+        .download-apps a i {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .main-footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+    <h1>RozgarSetu 🤝</h1>
+    <nav>
+        <a href="jobs.html">Jobs</a>
+        <a href="courses.html">Courses</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a> 
+        <a href="contact.html">Contact</a> 
+    </nav>
+</header>
+    
+    <main class="landing-container">
+        <h2 class="landing-title">Who Are You?</h2>
+        <p class="landing-subtitle">Select your role to begin your journey:</p>
+        
+        <div class="user-type-selection">
+            
+            <div class="type-card seeker-card" onclick="window.location.href='jobs.html';">
+                <span class="material-icons">work</span>
+                <h3>Job Seeker</h3>
+                <p>Looking for a new job or career change.</p>
+                <button class="select-btn">Explore Jobs</button>
+            </div>
+
+            <div class="type-card giver-card" onclick="window.location.href='post_job.html';">
+                <span class="material-icons">business</span>
+                <h3>Job Giver</h3>
+                <p>Need to hire talent for your company.</p>
+                <button class="select-btn">Post a Job</button>
+            </div>
+            
+        </div>
+    </main>
+    
+    <section class="companies-section">
+        <h2>Our Featured Hiring Partners</h2>
+        <div class="logo-grid">
+            
+            <div class="company-logo" data-color="tech">
+                <i class="fas fa-microchip tech-color"></i>
+                <span class="logo-placeholder">TechCorp Solutions</span>
+            </div>
+            
+            <div class="company-logo" data-color="data">
+                <i class="fas fa-globe-asia data-color"></i>
+                <span class="logo-placeholder">Global Digital</span>
+            </div>
+            
+            <div class="company-logo" data-color="creative">
+                <i class="fas fa-palette creative-color"></i>
+                <span class="logo-placeholder">Creative Hub</span>
+            </div>
+            
+            <div class="company-logo" data-color="tech">
+                <i class="fas fa-robot tech-color"></i>
+                <span class="logo-placeholder">Innovate AI</span>
+            </div>
+            
+            <div class="company-logo" data-color="data">
+                <i class="fas fa-cloud data-color"></i>
+                <span class="logo-placeholder">Data Systems</span>
+            </div>
+            
+            <div class="company-logo" data-color="startup">
+                <i class="fas fa-store startup-color"></i>
+                <span class="logo-placeholder">Retail Pro</span>
+            </div>
+            
+            <div class="company-logo" data-color="finance">
+                <i class="fas fa-dollar-sign finance-color"></i>
+                <span class="logo-placeholder">FinGrowth Bank</span>
+            </div>
+            
+            <div class="company-logo" data-color="tech">
+                <i class="fas fa-code tech-color"></i>
+                <span class="logo-placeholder">SoftServe Inc.</span>
+            </div>
+            
+        </div>
+    </section>
+    
+    <section class="resources-section">
+        <h2>Upskill & Learn with RozgarSetu Resources</h2>
+        <div class="resource-cards-container">
+            
+            <div class="resource-card">
+                <span class="material-icons">school</span>
+                <h3>Online Courses</h3>
+                <p>Sharpen your skills in Web Development, AI/ML, Digital Marketing, and more. Access curated courses to stay competitive in the job market.</p>
+                <a href="courses.html" class="resource-link">Browse Courses</a> 
+            </div>
+
+            <div class="resource-card">
+                <span class="material-icons">article</span>
+                <h3>Career Blog</h3>
+                <p>Read our latest articles on interview tips, resume building, salary negotiation, and future industry trends to guide your career path.</p>
+                <a href="blog.html" class="resource-link">Read Blog</a>
+            </div>
+            
+        </div>
+    </section>
+    
+    <div class="connect-wrapper">
+        
+        <section class="connect-section">
+            <h2>Connect With Us</h2>
+            <p>Follow us on social media for the latest job alerts and career tips.</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Connect on Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Connect on Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Connect on Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </section>
+        
+        <section class="download-section">
+            <h2>Download Our App</h2>
+            <p>Get instant job notifications right on your phone.</p>
+            <div class="download-apps">
+                <a href="#" class="android-btn" aria-label="Download on Google Play">
+                    <i class="fab fa-google-play"></i> Google Play
+                </a>
+                <a href="#" class="ios-btn" aria-label="Download on App Store">
+                    <i class="fab fa-apple"></i> App Store
+                </a>
+            </div>
+        </section>
+        
+    </div>
+    
+    <footer class="main-footer">
+        <p>&copy; 2025 RozgarSetu. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
