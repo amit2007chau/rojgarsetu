@@ -18,7 +18,7 @@
         }
 
         .main-header {
-            background-color: #007bff; /* Blue header */
+            background-color: #007bff;
             color: white;
             padding: 15px 40px;
             display: flex;
@@ -43,6 +43,17 @@
             margin: 50px auto;
             padding: 20px;
             text-align: center;
+        }
+
+        .landing-title {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .landing-subtitle {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 40px;
         }
 
         /* User Type Cards (Job Seeker/Giver) - Existing Styles */
@@ -78,7 +89,7 @@
             margin-top: 15px;
             transition: background-color 0.3s;
         }
-        
+
         /* --- Featured Companies Styles --- */
         .companies-section {
             max-width: 1200px;
@@ -115,17 +126,12 @@
             cursor: pointer;
         }
 
-        .company-logo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-        
         .company-logo i {
             font-size: 2.5em;
             margin-bottom: 5px;
             transition: color 0.3s;
         }
-
+        
         .logo-placeholder {
             font-size: 0.9em;
             font-weight: 600;
@@ -139,14 +145,13 @@
         .finance-color { color: #20c997; }
         .startup-color { color: #fd7e14; }
 
-
-        /* --- Resource Section Styles (UPDATED) --- */
+        /* --- Resource Section Styles (for clarity) --- */
         .resources-section {
             max-width: 1000px;
             margin: 60px auto 40px;
-            padding: 40px 20px; /* Increased padding */
+            padding: 40px 20px;
             text-align: center;
-            background-color: #fff; /* White background for separation */
+            background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
@@ -154,9 +159,7 @@
         .resources-section h2 {
             color: #28a745; 
             margin-bottom: 30px;
-            font-size: 2em; /* Slightly larger heading */
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 2em;
         }
 
         .resource-cards-container {
@@ -166,26 +169,17 @@
         }
 
         .resource-card {
-            /* Removed padding and shadow to use new container style */
             width: 45%;
-            padding: 0;
-            box-shadow: none;
-            border: none;
-            text-align: center; /* Centered text within card */
-            background-color: #f9f9f9; /* Light grey background for card */
             padding: 30px 20px;
             border-radius: 10px;
-            border-bottom: 4px solid #007bff; /* Blue underline effect */
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #007bff;
+            background-color: #f9f9f9;
+            text-align: center;
         }
 
         .resource-card .material-icons {
-            font-size: 3em; /* Larger icon */
-            color: #28a745; /* Green icon color */
+            font-size: 3em; 
+            color: #28a745; 
             margin-bottom: 15px;
         }
 
@@ -202,61 +196,69 @@
             text-decoration: none;
             font-weight: bold;
         }
-        
-        /* --- Connect and Download Section Styles (FIXED) --- */
-        .connect-wrapper {
-            max-width: 1000px;
-            margin: 60px auto 40px;
-            display: flex;
-            gap: 40px;
-        }
 
-        .connect-section, .download-section {
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
+        /* --- Connect With Us Section (Full Width) (FINAL FIX) --- */
         .connect-section {
-            flex: 1;
-            background-color: #e9f5ff; /* Light blue */
+            width: 100%; 
+            margin: 60px 0 0;
+            padding: 40px 0;
             text-align: center;
+            background-color: #007bff;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
         }
 
-        .download-section {
-            flex: 1;
-            background-color: #fff; /* White */
-            text-align: center;
+        .connect-section h2 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2em;
         }
 
-        .connect-section h2, .download-section h2 {
-            color: #007bff;
-            margin-bottom: 25px;
-            font-size: 1.6em;
+        .social-icons {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-
+        
         .social-icons a {
-            font-size: 2.5em;
-            margin: 0 15px;
-            color: #007bff;
+            font-size: 3em;
+            margin: 0 25px;
+            color: white; 
             transition: color 0.3s;
         }
         
         .social-icons a:hover {
-            color: #28a745; 
+            color: #ffc107;
+        }
+        
+        /* --- Download App Section (Separated & Positioned) (FINAL FIX) --- */
+        .download-section {
+            max-width: 800px; 
+            margin: 40px auto 40px;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .download-section h2 {
+            color: #28a745;
+            margin-bottom: 25px;
+            font-size: 1.8em;
         }
 
         .download-apps {
             margin-top: 20px;
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            justify-content: center;
+            gap: 20px;
         }
 
         .download-apps a {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             text-decoration: none;
             color: white;
             padding: 12px 25px;
@@ -267,19 +269,11 @@
         }
 
         .android-btn {
-            background-color: #3DDC84; /* Android green */
+            background-color: #3DDC84; 
         }
         
-        .android-btn:hover {
-            background-color: #34c475;
-        }
-
         .ios-btn {
-            background-color: #007AFF; /* iOS blue */
-        }
-        
-        .ios-btn:hover {
-            background-color: #005bb5;
+            background-color: #007AFF; 
         }
 
         .download-apps a i {
@@ -299,15 +293,15 @@
 </head>
 <body>
     <header class="main-header">
-    <h1>RozgarSetu 🤝</h1>
-    <nav>
-        <a href="jobs.html">Jobs</a>
-        <a href="courses.html">Courses</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a> 
-        <a href="contact.html">Contact</a> 
-    </nav>
-</header>
+        <h1>RozgarSetu 🤝</h1>
+        <nav>
+            <a href="jobs.html">Jobs</a>
+            <a href="courses.html">Courses</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a> 
+            <a href="contact.html">Contact</a> 
+        </nav>
+    </header>
     
     <main class="landing-container">
         <h2 class="landing-title">Who Are You?</h2>
@@ -336,42 +330,35 @@
         <h2>Our Featured Hiring Partners</h2>
         <div class="logo-grid">
             
-            <div class="company-logo" data-color="tech">
+            <div class="company-logo" data-color="tech" onclick="comingSoon('Our Featured Hiring Partners')">
                 <i class="fas fa-microchip tech-color"></i>
                 <span class="logo-placeholder">TechCorp Solutions</span>
             </div>
-            
-            <div class="company-logo" data-color="data">
+            <div class="company-logo" data-color="data" onclick="comingSoon('Our Featured Hiring Partners')">
                 <i class="fas fa-globe-asia data-color"></i>
                 <span class="logo-placeholder">Global Digital</span>
             </div>
-            
-            <div class="company-logo" data-color="creative">
+            <div class="company-logo" data-color="creative" onclick="comingSoon('Our Featured Hiring Partners')">
                 <i class="fas fa-palette creative-color"></i>
                 <span class="logo-placeholder">Creative Hub</span>
             </div>
-            
-            <div class="company-logo" data-color="tech">
+            <div class="company-logo" data-color="tech" onclick="comingSoon('Our Featured Hiring Partners')">
                 <i class="fas fa-robot tech-color"></i>
                 <span class="logo-placeholder">Innovate AI</span>
             </div>
-            
-            <div class="company-logo" data-color="data">
+            <div class="company-logo" data-color="data" onclick="comingSoon('Our Featured Hiring Partners')">
                 <i class="fas fa-cloud data-color"></i>
                 <span class="logo-placeholder">Data Systems</span>
             </div>
-            
-            <div class="company-logo" data-color="startup">
+            <div class="company-logo" data-color="startup" onclick="comingSoon('Our Featured Hiring Partners')">
                 <i class="fas fa-store startup-color"></i>
                 <span class="logo-placeholder">Retail Pro</span>
             </div>
-            
-            <div class="company-logo" data-color="finance">
+            <div class="company-logo" data-color="finance" onclick="comingSoon('Our Featured Hiring Partners')">
                 <i class="fas fa-dollar-sign finance-color"></i>
                 <span class="logo-placeholder">FinGrowth Bank</span>
             </div>
-            
-            <div class="company-logo" data-color="tech">
+            <div class="company-logo" data-color="tech" onclick="comingSoon('Our Featured Hiring Partners')">
                 <i class="fas fa-code tech-color"></i>
                 <span class="logo-placeholder">SoftServe Inc.</span>
             </div>
@@ -399,37 +386,41 @@
             
         </div>
     </section>
+
+    <section class="download-section">
+        <h2>Download Our App</h2>
+        <p>Get instant job notifications right on your phone.</p>
+        <div class="download-apps">
+            <a href="javascript:void(0)" onclick="comingSoon('App Download')" class="android-btn" aria-label="Download on Google Play">
+                <i class="fab fa-google-play"></i> Google Play
+            </a>
+            <a href="javascript:void(0)" onclick="comingSoon('App Download')" class="ios-btn" aria-label="Download on App Store">
+                <i class="fab fa-apple"></i> App Store
+            </a>
+        </div>
+    </section>
     
-    <div class="connect-wrapper">
-        
-        <section class="connect-section">
-            <h2>Connect With Us</h2>
-            <p>Follow us on social media for the latest job alerts and career tips.</p>
-            <div class="social-icons">
-                <a href="#" aria-label="Connect on Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" aria-label="Connect on Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" aria-label="Connect on Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-        </section>
-        
-        <section class="download-section">
-            <h2>Download Our App</h2>
-            <p>Get instant job notifications right on your phone.</p>
-            <div class="download-apps">
-                <a href="#" class="android-btn" aria-label="Download on Google Play">
-                    <i class="fab fa-google-play"></i> Google Play
-                </a>
-                <a href="#" class="ios-btn" aria-label="Download on App Store">
-                    <i class="fab fa-apple"></i> App Store
-                </a>
-            </div>
-        </section>
-        
-    </div>
+    <section class="connect-section">
+        <h2>Connect With Us</h2>
+        <div class="social-icons">
+            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+    
+    
     
     <footer class="main-footer">
         <p>&copy; 2025 RozgarSetu. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // Global function to handle "Coming Soon" alerts for all non-functional links
+        function comingSoon(feature) {
+            alert("The '" + feature + "' feature is launching soon! Please check back very soon for updates.");
+        }
+    </script>
 </body>
 </html>

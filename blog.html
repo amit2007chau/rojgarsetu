@@ -48,6 +48,8 @@
         .read-more-link:hover {
             text-decoration: underline;
         }
+        
+        /* Note: Add main-header and main-footer styles to your styles.css for proper display */
     </style>
 </head>
 <body>
@@ -57,6 +59,8 @@
             <a href="index.html">Home</a>
             <a href="jobs.html">Jobs</a>
             <a href="courses.html">Courses</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
@@ -69,21 +73,21 @@
                 <h3>The Ultimate Guide to Resume Building in 2025</h3>
                 <p class="blog-meta">By Career Expert | October 14, 2025 | 15 Comments</p>
                 <p>Learn how to optimize your resume for applicant tracking systems (ATS) and impress hiring managers with measurable achievements, not just job descriptions.</p>
-                <a href="#" class="read-more-link">Read More &rarr;</a>
+                <a href="javascript:void(0)" onclick="comingSoon('Blog Post')" class="read-more-link">Read More &rarr;</a>
             </div>
             
             <div class="blog-post">
                 <h3>Top 5 Skills High-Paying Remote Jobs Demand</h3>
                 <p class="blog-meta">By Industry Analyst | October 10, 2025 | 22 Comments</p>
                 <p>We analyze the current remote job market to reveal the most sought-after technical and soft skills that will boost your salary potential.</p>
-                <a href="#" class="read-more-link">Read More &rarr;</a>
+                <a href="javascript:void(0)" onclick="comingSoon('Blog Post')" class="read-more-link">Read More &rarr;</a>
             </div>
             
             <div class="blog-post">
                 <h3>How to Ace Your Behavioral Interview Questions</h3>
                 <p class="blog-meta">By HR Specialist | October 5, 2025 | 8 Comments</p>
                 <p>Master the STAR method for answering questions about past experiences and demonstrate your professional competence effectively to interviewers.</p>
-                <a href="#" class="read-more-link">Read More &rarr;</a>
+                <a href="javascript:void(0)" onclick="comingSoon('Blog Post')" class="read-more-link">Read More &rarr;</a>
             </div>
             
         </div>
@@ -92,5 +96,12 @@
     <footer class="main-footer">
         <p>&copy; 2025 RozgarSetu. Career Insights.</p>
     </footer>
+
+    <script>
+        // Global function to handle "Coming Soon" alerts for all non-functional links
+        function comingSoon(feature) {
+            alert("The '" + feature + "' feature is launching soon! Please check back very soon for updates.");
+        }
+    </script>
 </body>
 </html>

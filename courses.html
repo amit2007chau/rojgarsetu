@@ -64,6 +64,8 @@
         .enroll-btn:hover {
             background-color: #1e7e34;
         }
+        
+        /* Note: Add main-header and main-footer styles to your styles.css for proper display */
     </style>
 </head>
 <body>
@@ -73,6 +75,8 @@
             <a href="index.html">Home</a>
             <a href="jobs.html">Jobs</a>
             <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
@@ -85,28 +89,28 @@
                 <h3>Full Stack React Development</h3>
                 <p>Master the MERN stack (MongoDB, Express, React, Node) and build modern, scalable web applications from scratch.</p>
                 <span class="duration">Duration: 12 Weeks | Remote</span>
-                <a href="#" class="enroll-btn">Enroll Now</a>
+                <a href="javascript:void(0)" onclick="comingSoon('Course Enrollment')" class="enroll-btn">Enroll Now</a>
             </div>
             
             <div class="course-card">
                 <h3>Introduction to AI and Machine Learning</h3>
                 <p>Learn the fundamental concepts of AI, Python for data science, and build your first predictive models using TensorFlow.</p>
                 <span class="duration">Duration: 8 Weeks | Beginner Level</span>
-                <a href="#" class="enroll-btn">Enroll Now</a>
+                <a href="javascript:void(0)" onclick="comingSoon('Course Enrollment')" class="enroll-btn">Enroll Now</a>
             </div>
             
             <div class="course-card">
                 <h3>Advanced Digital Marketing Strategy</h3>
                 <p>Covering SEO, SEM, social media management, and performance marketing. Become a certified digital marketing strategist.</p>
                 <span class="duration">Duration: 10 Weeks | Intermediate Level</span>
-                <a href="#" class="enroll-btn">Enroll Now</a>
+                <a href="javascript:void(0)" onclick="comingSoon('Course Enrollment')" class="enroll-btn">Enroll Now</a>
             </div>
             
             <div class="course-card">
                 <h3>Excel for Data Entry and Analytics</h3>
                 <p>A comprehensive course on advanced Excel features, including pivot tables, VLOOKUP, and data visualization for office roles.</p>
                 <span class="duration">Duration: 4 Weeks | Certification Included</span>
-                <a href="#" class="enroll-btn">Enroll Now</a>
+                <a href="javascript:void(0)" onclick="comingSoon('Course Enrollment')" class="enroll-btn">Enroll Now</a>
             </div>
             
         </div>
@@ -115,5 +119,12 @@
     <footer class="main-footer">
         <p>&copy; 2025 RozgarSetu. Upskill Your Future.</p>
     </footer>
+
+    <script>
+        // Global function to handle "Coming Soon" alerts for all non-functional links
+        function comingSoon(feature) {
+            alert("The '" + feature + "' feature is launching soon! Please check back very soon for updates.");
+        }
+    </script>
 </body>
 </html>
