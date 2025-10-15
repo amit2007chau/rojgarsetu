@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RozgarSetu | Network & Referrals</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Note: Basic header/footer styles should be in styles.css */
+        
+        .network-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .network-container h2 {
+            color: #fd7e14; /* Orange/Networking color */
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        /* Search Bar Style */
+        .network-search-bar {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        .network-search-bar input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            font-size: 1em;
+        }
+        .network-search-bar button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .network-search-bar button:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Referral Posts/List Style */
+        .referral-post-card {
+            background-color: #fff8f5; /* Light orange background */
+            border: 1px solid #ffe0cc;
+            border-left: 5px solid #fd7e14; /* Orange left border */
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .post-details strong {
+            color: #333;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .post-details span {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .connect-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .connect-btn:hover {
+            background-color: #1e7e34;
+        }
+
+        .cta-section {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .ask-referral-btn {
+            background-color: #fd7e14;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .ask-referral-btn:hover {
+            background-color: #e66900;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1>RozgarSetu | Network</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="jobs.html">Jobs</a>
+            <a href="courses.html">Courses</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="network-container">
+        <h2>Connect for Referrals & Professional Networking</h2>
+        
+        <div class="network-search-bar">
+            <input type="text" placeholder="Search people by Company, Skill, or Role...">
+            <button><span class="material-icons">search</span></button>
+        </div>
+        
+        <div class="referral-list">
+            
+            <div class="referral-post-card">
+                <div class="post-details">
+                    <strong>Amit Sharma (Software Engineer)</strong>
+                    <span>Company: TechSolutions Inc. | Skill: React, Node.js</span>
+                </div>
+                <button class="connect-btn" onclick="comingSoon('Connect')">Ask for Referral</button>
+            </div>
+            
+            <div class="referral-post-card">
+                <div class="post-details">
+                    <strong>Priya Singh (HR Manager)</strong>
+                    <span>Company: Global Digital | Skill: Recruitment, Talent Acquisition</span>
+                </div>
+                <button class="connect-btn" onclick="comingSoon('Connect')">Ask for Referral</button>
+            </div>
+            
+            <div class="referral-post-card">
+                <div class="post-details">
+                    <strong>Rajesh Kumar (Data Analyst)</strong>
+                    <span>Company: DataGenius Labs | Skill: SQL, Python, Reporting</span>
+                </div>
+                <button class="connect-btn" onclick="comingSoon('Connect')">Ask for Referral</button>
+            </div>
+
+            <div class="referral-post-card">
+                <div class="post-details">
+                    <strong>Anjali Verma (Content Writer)</strong>
+                    <span>Company: Creative Hub | Skill: SEO, Freelancing, Hindi/English Content</span>
+                </div>
+                <button class="connect-btn" onclick="comingSoon('Connect')">Ask for Referral</button>
+            </div>
+            
+        </div>
+        
+        <div class="cta-section">
+            <h3>Don't see who you need?</h3>
+            <p>Post your own request for a referral or connection.</p>
+            <button class="ask-referral-btn" onclick="comingSoon('Post Referral Request')">Post a Request</button>
+        </div>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 RozgarSetu. Network Smarter.</p>
+    </footer>
+
+    <script>
+        // Global function to handle "Coming Soon" alerts for non-functional links
+        function comingSoon(feature) {
+            alert("The '" + feature + "' feature is launching soon! Please check back very soon for updates.");
+        }
+    </script>
+</body>
+</html>
