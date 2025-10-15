@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* CSS specific to the new sections and layout fixes */
+        
         /* --- General and Header Styles (Simplified for inclusion) --- */
         body {
             font-family: 'Arial', sans-serif;
@@ -39,7 +41,7 @@
 
         /* --- Landing Container Styles --- */
         .landing-container {
-            max-width: 1000px;
+            max-width: 1200px; /* Increased width to accommodate 3 cards */
             margin: 50px auto;
             padding: 20px;
             text-align: center;
@@ -56,11 +58,11 @@
             margin-bottom: 40px;
         }
 
-        /* User Type Cards (Job Seeker/Giver) - Existing Styles */
+        /* User Type Cards (Job Seeker/Giver/Networking) - ADJUSTED STYLES */
         .user-type-selection {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 20px; /* Reduced gap */
             margin-top: 30px;
         }
 
@@ -68,8 +70,8 @@
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 250px;
+            padding: 25px; /* Reduced padding */
+            width: 300px; /* Increased card width slightly */
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -77,6 +79,21 @@
         .type-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .type-card .material-icons {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        
+        /* Unique color for the new networking card */
+        .networking-card .material-icons {
+            color: #007bff; /* Orange color */
+        }
+        
+        .networking-card h3 {
+            color: #555;
         }
 
         .select-btn {
@@ -197,7 +214,7 @@
             font-weight: bold;
         }
 
-        /* --- Connect With Us Section (Full Width) (FINAL FIX) --- */
+        /* --- Connect With Us Section (Full Width) --- */
         .connect-section {
             width: 100%; 
             margin: 60px 0 0;
@@ -232,7 +249,7 @@
             color: #ffc107;
         }
         
-        /* --- Download App Section (Separated & Positioned) (FINAL FIX) --- */
+        /* --- Download App Section (Separated & Positioned) --- */
         .download-section {
             max-width: 800px; 
             margin: 40px auto 40px;
@@ -312,15 +329,22 @@
             <div class="type-card seeker-card" onclick="window.location.href='jobs.html';">
                 <span class="material-icons">work</span>
                 <h3>Job Seeker</h3>
-                <p>Looking for a new job or career change.</p>
+                <p>Find jobs tailored to your skills and experience.</p>
                 <button class="select-btn">Explore Jobs</button>
             </div>
 
             <div class="type-card giver-card" onclick="window.location.href='post_job.html';">
                 <span class="material-icons">business</span>
                 <h3>Job Giver</h3>
-                <p>Need to hire talent for your company.</p>
+                <p>Hire qualified talent efficiently for your organization.</p>
                 <button class="select-btn">Post a Job</button>
+            </div>
+
+            <div class="type-card networking-card" onclick="comingSoon('Referral & Networking Feature')">
+                <span class="material-icons">people_alt</span>
+                <h3>Networking & Referrals</h3>
+                <p>Connect with peers for referrals, career advice, and industry networking.</p>
+                <button class="select-btn" style="background-color: #fd7e14;">Connect Now</button>
             </div>
             
         </div>
@@ -386,7 +410,17 @@
             
         </div>
     </section>
-
+    
+    <section class="connect-section">
+        <h2>Connect With Us</h2>
+        <div class="social-icons">
+            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+    
     <section class="download-section">
         <h2>Download Our App</h2>
         <p>Get instant job notifications right on your phone.</p>
@@ -399,18 +433,6 @@
             </a>
         </div>
     </section>
-    
-    <section class="connect-section">
-        <h2>Connect With Us</h2>
-        <div class="social-icons">
-            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="javascript:void(0)" onclick="comingSoon('Social Media Connect')" aria-label="Connect on Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-    </section>
-    
-    
     
     <footer class="main-footer">
         <p>&copy; 2025 RozgarSetu. All Rights Reserved.</p>
